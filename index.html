@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<button onclick="myFunction1()">Click me 1</button>
+<button onclick="myFunction2()">Click me 2</button>
+
+<p id="demo"></p>
+
+<p>A function is triggered when the button is clicked. The function outputs some text in a p element with id="demo".</p>
+
+<script>
+function myFunction1() {
+  document.getElementById("demo").innerHTML = "myFunction1";
+  
+  var messageObj = {my_message_1: 'postMessage'};
+  window.postMessage(JSON.stringify(messageObj));
+}
+
+function myFunction2() {
+  document.getElementById("demo").innerHTML = "myFunction2";
+  
+  var messageObj = {my_message_2: 'postMessage'};
+  webkit.messageHandlers.cordova_iab.postMessage(JSON.stringify(messageObj));
+}
+
+window.onmessage = (x) => {
+	console.log(x);
+}
+</script>
+
+</body>
+</html>

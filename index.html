@@ -20,8 +20,12 @@ function myFunction1() {
 function myFunction2() {
   document.getElementById("demo").innerHTML = "myFunction2";
   
-  var messageObj = {my_message_2: 'postMessage'};
-  webkit.messageHandlers.cordova_iab.postMessage(JSON.stringify(messageObj));
+  if(webkit && webkit.messageHandlers && webkit.messageHandlers.cordova_iab){
+	var messageObj = {my_message_2: 'postMessage'};
+  	webkit.messageHandlers.cordova_iab.postMessage(JSON.stringify(messageObj));
+	  
+	document.getElementById("demo").innerHTML = "myFunction2 webkit";
+  }
 }
 
 window.onmessage = (x) => {

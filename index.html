@@ -13,7 +13,7 @@
 function myFunction1() {
   document.getElementById("demo").innerHTML = "myFunction1";
   
-  var messageObj = {my_message_1: 'postMessage'};
+  var messageObj = {type: 'goback'};
   window.postMessage(JSON.stringify(messageObj));
 }
 
@@ -21,7 +21,7 @@ function myFunction2() {
   document.getElementById("demo").innerHTML = "myFunction2";
   
   if(webkit && webkit.messageHandlers && webkit.messageHandlers.cordova_iab){
-	var messageObj = {my_message_2: 'postMessage'};
+	var messageObj = {type: 'goback'};
   	webkit.messageHandlers.cordova_iab.postMessage(JSON.stringify(messageObj));
 	  
 	document.getElementById("demo").innerHTML = "myFunction2 webkit";
